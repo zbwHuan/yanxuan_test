@@ -123,7 +123,7 @@
             <img src="../../common/images/huodong.png">
           </div>
           <div class="floor">
-            <a href></a>
+            <a v-for="(item, index) in personalShop" :key="index"></a>
           </div>
         </div>
       </div>
@@ -147,12 +147,12 @@ export default {
   },
   async mounted() {
     const result = await reqHome()
+
     if (result.code === 0) {
       this.policyDescList = result.data.policyDescList
       this.kingKongModule = result.data.kingKongModule
       this.flashSaleModule = result.data.flashSaleModule
     }
-
     this.$nextTick(() => {
       this.mySwiper = new Swiper('.swiper-container', {
         loop: true, // 循环模式选项
@@ -166,8 +166,7 @@ export default {
         scrollX: true
       })
       this.mainScroll = new BScroll('.mainContainer', {
-        click: true,
-        scrollY: true
+        click: true
       })
     })
   }
@@ -176,7 +175,8 @@ export default {
 
 <style lang="stylus" rel="stylesheet/stylus">
 #firstViewContainer {
-  width: 750px;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 
   .headerContainer {
@@ -303,10 +303,11 @@ export default {
   }
 
   .mainContainer {
+    box-sizing: border-box;
+    position: absolute;
     width: 100%;
-    hieght: 100%;
-    padding-top: 148px;
-    padding-bottom: 98px;
+    top: 148px;
+    bottom: 98px;
 
     .swiper-container {
       width: 100%;

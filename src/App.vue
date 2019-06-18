@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="warp">
     <router-view></router-view>
     <FooterGuide/>
   </div>
@@ -14,4 +14,10 @@ export default {
 }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus"></style>
+<style lang="stylus" rel="stylesheet/stylus">
+#warp {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+</style>
