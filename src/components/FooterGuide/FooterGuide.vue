@@ -22,8 +22,8 @@
       <a
         class="listItem"
         href="javascript:;"
-        @click="goto('/search')"
-        :class="{active: $route.path === '/search'}"
+        @click="goto('/article')"
+        :class="{active: $route.path === '/article'}"
       >
         <i class="iconfont"></i>
         <span>识物</span>

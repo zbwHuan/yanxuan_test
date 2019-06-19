@@ -23,63 +23,63 @@
     "background": "http://yanxuan.nosdn.127.net/54e38f7ee78d0f85a56fc8bf58bf36d3.png",
     "kingKongList": [
       {
-        "picUrl": "http://yanxuan.nosdn.127.net/fede8b110c502ec5799702d5ec824792.png",
+        "picUrl": "http://yanxuan.nosdn.127.net/698205eb5a605f0f7c27aebadacd2317.png",
         "schemeUrl": "http://m.you.163.com/item/list?categoryId=1005000&style=pd",
-        "text": "居家生活",
+        "text": "居家",
         "textColor": "333333"
       },
       {
-        "picUrl": "http://yanxuan.nosdn.127.net/fb9dde0c1593536c18c8e12b6f49eb17.png",
+        "picUrl": "http://yanxuan.nosdn.127.net/855a0ee7410f534f3db3f7f3a687c153.png",
         "schemeUrl": "http://m.you.163.com/item/list?categoryId=1008000&style=pd",
-        "text": "服饰鞋包",
+        "text": "鞋包配饰",
         "textColor": "333333"
       },
       {
-        "picUrl": "http://yanxuan.nosdn.127.net/d916591adea776351e084016335e5820.png",
+        "picUrl": "http://yanxuan.nosdn.127.net/42b4ab968ae5b0f38e608131fb68a095.png",
         "schemeUrl": "http://m.you.163.com/item/list?categoryId=1010000&style=pd",
-        "text": "美食酒水",
+        "text": "服装",
         "textColor": "333333"
       },
       {
-        "picUrl": "http://yanxuan.nosdn.127.net/6c3bd9d885c818b1f73e497335a68b47.png",
+        "picUrl": "http://yanxuan.nosdn.127.net/40e494813fae78a483483d32fd7338b1.png",
         "schemeUrl": "http://m.you.163.com/item/list?categoryId=1043000&style=pd",
-        "text": "个护清洁",
+        "text": "电器",
         "textColor": "333333"
       },
       {
-        "picUrl": "http://yanxuan.nosdn.127.net/63682bd2df06963251b2715e20f98a75.png",
+        "picUrl": "http://yanxuan.nosdn.127.net/8fab9e34dd0f078fc85dedfa8478b3d5.png",
         "schemeUrl": "http://m.you.163.com/item/list?categoryId=1011000&style=pd",
-        "text": "限时购",
+        "text": "婴童",
         "textColor": "333333"
       },
       {
-        "picUrl": "http://yanxuan.nosdn.127.net/559d2a240ec20b096590a902217009ff.png",
+        "picUrl": "http://yanxuan.nosdn.127.net/449019db4190bf9ae98b7f2d62d42e26.png",
         "schemeUrl": "http://m.you.163.com/item/list?categoryId=1005002&style=pd",
-        "text": "母婴亲子",
+        "text": "饮食",
         "textColor": "333333"
       },
       {
-        "picUrl": "http://yanxuan.nosdn.127.net/5c088559ebcc3f0ffcda663f04dfbeb2.png",
+        "picUrl": "http://yanxuan.nosdn.127.net/50acb3ffe87d9ef77834eb379fe017cc.png",
         "schemeUrl": "http://m.you.163.com/item/list?categoryId=1013001&style=pd",
-        "text": "运动旅行",
+        "text": "洗护",
         "textColor": "333333"
       },
       {
-        "picUrl": "http://yanxuan.nosdn.127.net/47e953a95e4378907b131205ce3cbc45.png",
+        "picUrl": "http://yanxuan.nosdn.127.net/78616d875a47d3f4639f8448775b138e.png",
         "schemeUrl": "http://m.you.163.com/item/list?categoryId=1005001&style=pd",
-        "text": "数码家电",
+        "text": "餐厨",
         "textColor": "333333"
       },
       {
-        "picUrl": "http://yanxuan.nosdn.127.net/fbca8e1f2948f0c09fc7672c2c125384.png",
+        "picUrl": "http://yanxuan.nosdn.127.net/21fd4a2a1cf38ce43c2b23825e5508a8.png",
         "schemeUrl": "http://m.you.163.com/item/list?categoryId=1019000&style=pd",
-        "text": "全球特色",
+        "text": "文体",
         "textColor": "333333"
       },
       {
-        "picUrl": "http://yanxuan.nosdn.127.net/861a521a6f53e3399205f18daa23cddc.gif",
+        "picUrl": "http://yanxuan.nosdn.127.net/073855a1da7a21bf3cab628b99688cc1.png",
         "schemeUrl": "http://m.you.163.com/item/list?categoryId=1065000&style=pd",
-        "text": "超级会员",
+        "text": "特色区",
         "textColor": "333333"
       }
     ],
@@ -258,9 +258,9 @@
       "resourcesId": 1,
       "name": "男士优质小牛皮手工正装鞋",
       "productPlace": "",
-      "counterPrice": 659.0,
+      "counterPrice": 659.00,
       "couponPrice": 0,
-      "retailPrice": 659.0,
+      "retailPrice": 659.00,
       "status": 2
     },
     {
@@ -290,9 +290,9 @@
       "resourcesId": 2,
       "name": "严选礼品卡 1000元面值",
       "productPlace": "",
-      "counterPrice": 1000.0,
+      "counterPrice": 1000.00,
       "couponPrice": 0,
-      "retailPrice": 1000.0,
+      "retailPrice": 1000.00,
       "status": 2
     },
     {
@@ -323,9 +323,9 @@
       "resourcesId": 3,
       "name": "日本制造 居室线香 沉香",
       "productPlace": "日本制造",
-      "counterPrice": 69.0,
+      "counterPrice": 69.00,
       "couponPrice": 0,
-      "retailPrice": 69.0,
+      "retailPrice": 69.00,
       "status": 2
     },
     {
@@ -356,9 +356,9 @@
       "resourcesId": 4,
       "name": "日本制造 24K金T型美容棒 ",
       "productPlace": "日本制造",
-      "counterPrice": 459.0,
+      "counterPrice": 459.00,
       "couponPrice": 0,
-      "retailPrice": 459.0,
+      "retailPrice": 459.00,
       "status": 2
     },
     {
@@ -388,9 +388,9 @@
       "resourcesId": 5,
       "name": "即食燕窝 70克*6瓶 30%",
       "productPlace": "",
-      "counterPrice": 258.0,
+      "counterPrice": 258.00,
       "couponPrice": 0,
-      "retailPrice": 258.0,
+      "retailPrice": 258.00,
       "status": 2
     },
     {
@@ -429,9 +429,9 @@
       "resourcesId": 6,
       "name": "德式轻量保温杯",
       "productPlace": "",
-      "counterPrice": 119.0,
+      "counterPrice": 119.00,
       "couponPrice": 0,
-      "retailPrice": 119.0,
+      "retailPrice": 119.00,
       "status": 2
     },
     {
@@ -461,9 +461,9 @@
       "resourcesId": 7,
       "name": "网易智造T300无线吸尘器",
       "productPlace": "",
-      "counterPrice": 1599.0,
+      "counterPrice": 1599.00,
       "couponPrice": 0,
-      "retailPrice": 1599.0,
+      "retailPrice": 1599.00,
       "status": 2
     },
     {
@@ -494,9 +494,9 @@
       "resourcesId": 8,
       "name": "24寸 纯PC“铝框”（非全铝）拉杆箱",
       "productPlace": "",
-      "counterPrice": 389.0,
+      "counterPrice": 389.00,
       "couponPrice": 0,
-      "retailPrice": 389.0,
+      "retailPrice": 389.00,
       "status": 2
     },
     {
@@ -526,9 +526,9 @@
       "resourcesId": 9,
       "name": "可裸睡纯棉便携睡袋",
       "productPlace": "",
-      "counterPrice": 129.0,
+      "counterPrice": 129.00,
       "couponPrice": 0,
-      "retailPrice": 129.0,
+      "retailPrice": 129.00,
       "status": 2
     },
     {
@@ -568,7 +568,7 @@
       "resourcesId": 10,
       "name": "100%羊毛 女式全成型超细高领羊毛衫",
       "productPlace": "",
-      "counterPrice": 399.0,
+      "counterPrice": 399.00,
       "couponPrice": 0,
       "retailPrice": 259,
       "status": 2
@@ -600,9 +600,9 @@
       "resourcesId": 11,
       "name": "大丈夫冻干牛肉面",
       "productPlace": "4个规格",
-      "counterPrice": 33.9,
+      "counterPrice": 33.90,
       "couponPrice": 0,
-      "retailPrice": 33.9,
+      "retailPrice": 33.90,
       "status": 2
     },
     {
@@ -632,9 +632,9 @@
       "resourcesId": 12,
       "name": "半岳杯 茶水分离私品杯",
       "productPlace": "",
-      "counterPrice": 199.0,
+      "counterPrice": 199.00,
       "couponPrice": 0,
-      "retailPrice": 199.0,
+      "retailPrice": 199.00,
       "status": 2
     }
   ],
@@ -717,7 +717,9 @@
           "taskType": 1,
           "crmUserGroupName": "无分组",
           "resourcesId": 1,
-          "itemIdList": ["3419071"],
+          "itemIdList": [
+            "3419071"
+          ],
           "crmUserGroupId": "0",
           "taskId": "48399583"
         },
@@ -766,7 +768,9 @@
           "taskType": 1,
           "crmUserGroupName": "无分组",
           "resourcesId": 2,
-          "itemIdList": ["3413004"],
+          "itemIdList": [
+            "3413004"
+          ],
           "crmUserGroupId": "0",
           "taskId": "48352017"
         },
@@ -816,7 +820,9 @@
           "taskType": 1,
           "crmUserGroupName": "无分组",
           "resourcesId": 3,
-          "itemIdList": ["3402020"],
+          "itemIdList": [
+            "3402020"
+          ],
           "crmUserGroupId": "0",
           "taskId": "49247332"
         },
@@ -865,7 +871,9 @@
           "taskType": 1,
           "crmUserGroupName": "无分组",
           "resourcesId": 4,
-          "itemIdList": ["3419065"],
+          "itemIdList": [
+            "3419065"
+          ],
           "crmUserGroupId": "0",
           "taskId": "44561363"
         },
@@ -905,7 +913,9 @@
           "taskType": 1,
           "crmUserGroupName": "无分组",
           "resourcesId": 5,
-          "itemIdList": ["3454010"],
+          "itemIdList": [
+            "3454010"
+          ],
           "crmUserGroupId": "0",
           "taskId": "48486587"
         },
@@ -954,7 +964,9 @@
           "taskType": 1,
           "crmUserGroupName": "无分组",
           "resourcesId": 6,
-          "itemIdList": ["3451027"],
+          "itemIdList": [
+            "3451027"
+          ],
           "crmUserGroupId": "0",
           "taskId": "48399900"
         },
@@ -1003,7 +1015,9 @@
           "taskType": 1,
           "crmUserGroupName": "无分组",
           "resourcesId": 7,
-          "itemIdList": ["3447007"],
+          "itemIdList": [
+            "3447007"
+          ],
           "crmUserGroupId": "0",
           "taskId": "48486611"
         },
@@ -1093,7 +1107,9 @@
           "taskType": 1,
           "crmUserGroupName": "无分组",
           "resourcesId": 1,
-          "itemIdList": ["3406013"],
+          "itemIdList": [
+            "3406013"
+          ],
           "crmUserGroupId": "0",
           "taskId": "44352561"
         },
@@ -1133,7 +1149,9 @@
           "taskType": 2,
           "crmUserGroupName": "APP新用户版首页用户分组",
           "resourcesId": 2,
-          "itemIdList": ["1415008"],
+          "itemIdList": [
+            "1415008"
+          ],
           "crmUserGroupId": "20180920212350432",
           "taskId": "48826259"
         },
@@ -1183,7 +1201,9 @@
           "taskType": 1,
           "crmUserGroupName": "无分组",
           "resourcesId": 3,
-          "itemIdList": ["1550014"],
+          "itemIdList": [
+            "1550014"
+          ],
           "crmUserGroupId": "0",
           "taskId": "8306649"
         },
@@ -1233,7 +1253,9 @@
           "taskType": 1,
           "crmUserGroupName": "无分组",
           "resourcesId": 4,
-          "itemIdList": ["1651000"],
+          "itemIdList": [
+            "1651000"
+          ],
           "crmUserGroupId": "0",
           "taskId": "48016569"
         },
@@ -1258,7 +1280,7 @@
   "topicList": [
     {
       "itemPicUrl": "https://yanxuan.nosdn.127.net/571e99aba1df41c9a7098a8c0b83526a.jpg",
-      "priceInfo": 49.0,
+      "priceInfo": 49.00,
       "scenePicUrl": "https://yanxuan.nosdn.127.net/571e99aba1df41c9a7098a8c0b83526a.jpg",
       "topicId": 5921,
       "subtitle": "肉质剔透，甘润适口",
@@ -1268,7 +1290,7 @@
     },
     {
       "itemPicUrl": "https://yanxuan.nosdn.127.net/a8db9df4270f8d329d125b239e8de186.jpg",
-      "priceInfo": 78.0,
+      "priceInfo": 78.00,
       "scenePicUrl": "https://yanxuan.nosdn.127.net/a8db9df4270f8d329d125b239e8de186.jpg",
       "topicId": 5710,
       "subtitle": "柳州味道，酸爽香臭",
@@ -1278,7 +1300,7 @@
     },
     {
       "itemPicUrl": "https://yanxuan.nosdn.127.net/93e9864a90adb4ca079f2404a9426453.jpg",
-      "priceInfo": 9.9,
+      "priceInfo": 9.90,
       "scenePicUrl": "https://yanxuan.nosdn.127.net/93e9864a90adb4ca079f2404a9426453.jpg",
       "topicId": 5823,
       "subtitle": "住酒店也能像在家一样安心",
@@ -1296,7 +1318,7 @@
       "retailPricePostfix": "起",
       "showRetailPrice": "¥198起",
       "projectId": 250,
-      "retailPrice": 198.0,
+      "retailPrice": 198.00,
       "targetUrl": "http://m.you.163.com/zc/project/detail?id=250",
       "supportNum": "217人已支持"
     },
@@ -1307,7 +1329,7 @@
       "retailPricePostfix": "起",
       "showRetailPrice": "¥169起",
       "projectId": 249,
-      "retailPrice": 169.0,
+      "retailPrice": 169.00,
       "targetUrl": "http://m.you.163.com/zc/project/detail?id=249",
       "supportNum": "62人已支持"
     }
@@ -2964,7 +2986,13 @@
       "titlePicUrl": "https://yanxuan.nosdn.127.net/3d300175542f86c213da0afd53f7f08c.jpg"
     },
     {
-      "manuItemIdList": [1659002, 1165015, 1652031, 1621029, 1193005],
+      "manuItemIdList": [
+        1659002,
+        1165015,
+        1652031,
+        1621029,
+        1193005
+      ],
       "titleSchemeUrl": "http://you.163.com/topic/v1/pub/975DnRVmye.html",
       "autoItemIdList": [],
       "extra": {
@@ -2975,7 +3003,13 @@
           "taskType": 1,
           "crmUserGroupName": "无分组",
           "resourcesId": 12,
-          "itemIdList": ["1659002", "1165015", "1652031", "1621029", "1193005"],
+          "itemIdList": [
+            "1659002",
+            "1165015",
+            "1652031",
+            "1621029",
+            "1193005"
+          ],
           "crmUserGroupId": "0",
           "taskId": "48542899"
         },

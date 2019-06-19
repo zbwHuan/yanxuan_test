@@ -3,7 +3,7 @@
     <div class="headerContainer">
       <div class="header">
         <a href="javascript:;" class="logo"></a>
-        <div class="headerSearch">
+        <div class="headerSearch" @click="$router.push('/search')">
           <i class="iconfont"></i>
           <span>搜索商品, 共25113款好物</span>
         </div>
@@ -49,45 +49,8 @@
       <div class="main">
         <div class="swiper-container">
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <img
-                src="https://yanxuan.nosdn.127.net/b97b16feb75f78121c8fab18ae85300c.jpg?imageView&quality=75&thumbnail=750x0"
-              >
-            </div>
-            <div class="swiper-slide">
-              <img
-                src="https://yanxuan.nosdn.127.net/60e4ba11fdb8320eda453427bf287639.jpg?imageView&quality=75&thumbnail=750x0"
-              >
-            </div>
-            <div class="swiper-slide">
-              <img
-                src="https://yanxuan.nosdn.127.net/a89606c3c2cde5ee374e073bae08af0d.jpg?imageView&quality=75&thumbnail=750x0"
-              >
-            </div>
-            <div class="swiper-slide">
-              <img
-                src="https://yanxuan.nosdn.127.net/760406902a34b942a444965e91ff9b2b.jpg?watermark&type=1&gravity=northwest&dx=0&dy=0&image=YzBiN2Y3OTJmMWM4MGJjNzM3YmU4MTIwMTNlNDU4NGQucG5n|imageView&quality=75&thumbnail=750x0"
-              >
-            </div>
-            <div class="swiper-slide">
-              <img
-                src="https://yanxuan.nosdn.127.net/b1a2a21da52f6bb285e765b6d82c4995.jpg?watermark&type=1&gravity=northwest&dx=0&dy=0&image=YzBiN2Y3OTJmMWM4MGJjNzM3YmU4MTIwMTNlNDU4NGQucG5n|imageView&quality=75&thumbnail=750x0"
-              >
-            </div>
-            <div class="swiper-slide">
-              <img
-                src="https://yanxuan.nosdn.127.net/43f56a433442c235233f32d5ac5aa72f.jpg?watermark&type=1&gravity=northwest&dx=0&dy=0&image=YzBiN2Y3OTJmMWM4MGJjNzM3YmU4MTIwMTNlNDU4NGQucG5n|imageView&quality=75&thumbnail=750x0"
-              >
-            </div>
-            <div class="swiper-slide">
-              <img
-                src="https://yanxuan.nosdn.127.net/b0ef72b4d2fa40bd378139e9e07a5e2d.jpg?imageView&quality=75&thumbnail=750x0"
-              >
-            </div>
-            <div class="swiper-slide">
-              <img
-                src="https://yanxuan.nosdn.127.net/87afffbd9305868705159c719a368a01.jpg?watermark&type=1&gravity=northwest&dx=0&dy=0&image=YzBiN2Y3OTJmMWM4MGJjNzM3YmU4MTIwMTNlNDU4NGQucG5n|imageView&quality=75&thumbnail=750x0"
-              >
+            <div class="swiper-slide" v-for="(item, index) in focusList" :key="index">
+              <img :src="item.picUrl">
             </div>
           </div>
           <!-- 如果需要分页器 -->
@@ -116,15 +79,80 @@
           <div class="floor floorTop">
             <div class="promGood">
               <img src="http://yanxuan.nosdn.127.net/c7b29180b9602593004a9c24eba41c0c.png">
-              <span>$223</span>
+              <span>$2333</span>
             </div>
           </div>
-          <div class="floor">
-            <img src="../../common/images/huodong.png">
+          <Split/>
+          <div class="floor newPerson">
+            <div class="title">-新人专享礼-</div>
+            <a href="javascript:;" class="left">
+              <p>新人专享礼包</p>
+              <div>
+                <img src="../../common/images/15yuan.png">
+              </div>
+            </a>
+
+            <div class="right">
+              <p>福利社</p>
+              <p>今日特价</p>
+              <div>
+                <img src="../../common/images/15yuan.png">
+              </div>
+            </div>
+            <div class="right">
+              <p>福利社</p>
+              <p>今日特价</p>
+              <div>
+                <img src="../../common/images/15yuan.png">
+              </div>
+            </div>
           </div>
-          <div class="floor">
-            <a v-for="(item, index) in personalShop" :key="index"></a>
+          <Split/>
+          <div class="floor tagList">
+            <div class="title">
+              <span class="left">品牌制造商直供</span>
+              <span class="more">更多 ></span>
+            </div>
+            <ul class="list">
+              <li
+                class="listItem"
+                v-for="(item, index) in tagList"
+                :key="index"
+                :style="'background-image: url(' + item.picUrl + ')'"
+              >
+                <div class="listItemWarp">
+                  <h4 class="name">{{item.extra.materialName}}</h4>
+                  <div>
+                    <span class="price">{{item.floorPrice}}</span>
+                    <span>元起</span>
+                    <i v-if="item.newOnShelf">上新</i>
+                  </div>
+                </div>
+              </li>
+            </ul>
           </div>
+          <Split/>
+          <div class="floor categoryHotSellModule">
+            <div class="title">
+              <span class="left">类目热销榜</span>
+            </div>
+            <ul class="list">
+              <li
+                class="listItem"
+                v-for="(item, index) in categoryList"
+                :key="index"
+                :style="'background-image: url(' + item.picUrl + ')'"
+              >
+                <div class="name">
+                  <span>{{item.categoryName}}</span>
+                </div>
+                <div class="imgWarp">
+                  <img :src="item.picUrl">
+                </div>
+              </li>
+            </ul>
+          </div>
+          <Split/>
         </div>
       </div>
     </div>
@@ -142,7 +170,9 @@ export default {
       policyDescList: [], // 服务策略
       kingKongModule: {}, // 商品导航
       flashSaleModule: {}, // 限时购
-      personalShop: [] // 私人定制
+      focusList: [],
+      tagList: [],
+      categoryList: {} // 类目热销榜
     }
   },
   async mounted() {
@@ -152,6 +182,9 @@ export default {
       this.policyDescList = result.data.policyDescList
       this.kingKongModule = result.data.kingKongModule
       this.flashSaleModule = result.data.flashSaleModule
+      this.focusList = result.data.focusList
+      this.tagList = result.data.tagList
+      this.categoryList = result.data.categoryHotSellModule.categoryList
     }
     this.$nextTick(() => {
       this.mySwiper = new Swiper('.swiper-container', {
@@ -303,11 +336,11 @@ export default {
   }
 
   .mainContainer {
-    box-sizing: border-box;
-    position: absolute;
-    width: 100%;
+    position: fixed;
+    left: 0;
     top: 148px;
     bottom: 98px;
+    width: 100%;
 
     .swiper-container {
       width: 100%;
@@ -354,7 +387,9 @@ export default {
     }
 
     .kingkongModul {
+      background-color: #f3f5f7;
       overflow: hidden;
+      padding-bottom: 32px;
 
       .kingkongItem {
         float: left;
@@ -382,7 +417,10 @@ export default {
       width: 100%;
 
       .floor {
-        display: flex;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0 30px 30px;
+        background-color: #fff;
       }
 
       .floorTop {
@@ -421,7 +459,188 @@ export default {
         }
       }
 
-      .floorItem {
+      .newPerson {
+        padding: 0 30px;
+        overflow: hidden;
+
+        .title {
+          width: 100%;
+          height: 90px;
+          line-height: 90px;
+          font-size: 32px;
+          text-align: center;
+        }
+
+        .left {
+          display: block;
+          float: left;
+          width: 343px;
+          height: 434px;
+          background-color: rgb(249, 233, 207);
+          margin-right: 4px;
+
+          p {
+            padding: 30px 0 0 30px;
+            color: #333;
+            font-size: 32px;
+          }
+
+          div {
+            margin: 37px 42px;
+
+            img {
+              width: 258px;
+            }
+          }
+        }
+
+        .right {
+          float: right;
+          position: relative;
+          padding: 20px 0 0 30px;
+          margin-bottom: 4px;
+          height: 215px;
+          width: 343px;
+          background-color: rgb(249, 233, 207);
+          box-sizing: border-box;
+
+          img {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+          }
+        }
+      }
+
+      .tagList {
+        width: 100%;
+        padding: 0 26px 30px;
+
+        .title {
+          width: 100%;
+          height: 100px;
+
+          .left {
+            font-size: 32px;
+            height: 100px;
+            line-height: 100px;
+          }
+
+          .right {
+            float: right;
+            font-size: 28px;
+          }
+        }
+
+        .list {
+          overflow: hidden;
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+
+          .listItem {
+            width: 343px;
+            height: 260px;
+            margin: 0 4px 4px 0;
+            float: left;
+
+            .listItemWarp {
+              padding-top: 33px;
+
+              .name {
+                font-size: 28px;
+                text-align: center;
+                margin-bottom: 3px;
+              }
+
+              div {
+                text-align: center;
+
+                span {
+                  font-size: 24px;
+                }
+
+                i {
+                  font-size: 24px;
+                  margin-left: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .categoryHotSellModule {
+        padding: 0 20px 30px;
+
+        .title {
+          width: 100%;
+          height: 100px;
+        }
+
+        .list {
+          overflow: hidden;
+
+          .listItem {
+            position: relative;
+            float: left;
+            width: 165px;
+            height: 180px;
+            margin: 0 10px 10px 0;
+            background-color: rgb(245, 245, 245);
+
+            .name {
+              font-size: 24px;
+              color: #333;
+              margin-top: 10px;
+              text-align: center;
+            }
+
+            img {
+              width: 120px;
+              height: 120px;
+              margin: 2px 10px 0 23px;
+            }
+
+            &:first-child, &:nth-child(2) {
+              width: 340px;
+              height: 200px;
+              background-color: rgb(249, 243, 228);
+
+              .name {
+                font-size: 28px;
+                margin-top: 66px;
+                padding-left: 24px;
+                text-align: left;
+
+                &::after {
+                  position: absolute;
+                  left: 0;
+                  top: 53px;
+                  display: block;
+                  width: 48px;
+                  height: 4px;
+                  background-color: #333;
+                }
+              }
+
+              .imgWarp {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 200px;
+                height: 200px;
+                margin: 0;
+
+                img {
+                  width: 200px;
+                  height: 200px;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
