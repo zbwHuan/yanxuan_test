@@ -1,5 +1,5 @@
 import FirstView from '../pages/FirstView/FirstView.vue'
-import Categroy from '../pages/Categroy/Categroy.vue'
+import Category from '../pages/Category/Category.vue'
 import Article from '../pages/Article/Article.vue'
 import ShopCart from '../pages/ShopCart/ShopCart.vue'
 import Personal from '../pages/Personal/Personal.vue'
@@ -12,8 +12,8 @@ export default [
     component: FirstView
   },
   {
-    path: '/categroy',
-    component: Categroy
+    path: '/category',
+    component: Category
   },
   {
     path: '/article',

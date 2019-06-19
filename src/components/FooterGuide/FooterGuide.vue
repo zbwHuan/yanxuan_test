@@ -13,8 +13,8 @@
       <a
         class="listItem"
         href="javascript:;"
-        @click="goto('/categroy')"
-        :class="{active: $route.path === '/categroy'}"
+        @click="goto('/category')"
+        :class="{active: $route.path === '/category'}"
       >
         <i class="iconfont"></i>
         <span>分类</span>

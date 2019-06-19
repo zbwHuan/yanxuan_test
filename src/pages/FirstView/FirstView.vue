@@ -47,7 +47,7 @@
 
     <div class="mainContainer">
       <div class="main">
-        <div class="swiper-container">
+        <div class="swiper-container" ref="swiperWrap">
           <div class="swiper-wrapper">
             <div class="swiper-slide" v-for="(item, index) in focusList" :key="index">
               <img :src="item.picUrl">
@@ -84,7 +84,9 @@
           </div>
           <Split/>
           <div class="floor newPerson">
-            <div class="title">-新人专享礼-</div>
+            <div class="title">
+              <span>-新人专享礼-</span>
+            </div>
             <a href="javascript:;" class="left">
               <p>新人专享礼包</p>
               <div>
@@ -109,10 +111,7 @@
           </div>
           <Split/>
           <div class="floor tagList">
-            <div class="title">
-              <span class="left">品牌制造商直供</span>
-              <span class="more">更多 ></span>
-            </div>
+            <Title :name="'品牌制造商直供'" :isShow="true"/>
             <ul class="list">
               <li
                 class="listItem"
@@ -133,9 +132,7 @@
           </div>
           <Split/>
           <div class="floor categoryHotSellModule">
-            <div class="title">
-              <span class="left">类目热销榜</span>
-            </div>
+            <Title :name="'类目热销榜'" :isShow="false"/>
             <ul class="list">
               <li
                 class="listItem"
@@ -153,7 +150,42 @@
             </ul>
           </div>
           <Split/>
+          <div class="floor popularItemList" v-if="popularItemList.length">
+            <Title :name="'人气推荐'" :isShow="true"/>
+            <div class="firstItem">
+              <img class="img" :src="popularItemList[0].listPicUrl">
+              <div class="info">
+                <div>
+                  <span
+                    class="discounts"
+                    v-for="(tag, index) in popularItemList[0].itemTagList"
+                    :key="index"
+                  >{{tag.name}}</span>
+                </div>
+                <p class="name">{{popularItemList[0].name}}</p>
+                <p class="simpleDesc">{{popularItemList[0].simpleDesc}}</p>
+                <span class="price">¥{{popularItemList[0].counterPrice}}</span>
+              </div>
+            </div>
+            <GoodList :goodList="popularItemList.slice(1)"/>
+          </div>
+          <Split/>
+          <div class="floor flashSaleModule">
+            <Title :name="'限时购'" :isShow="true"/>
+            <GoodList :goodList="flashSaleModule.itemList"/>
+          </div>
+          <Split/>
+          <div class="floor newItemList">
+            <Title :name="'新品首发'" :isShow="true"/>
+            <GoodList :goodList="newItemList"/>
+          </div>
+          <Split/>
         </div>
+        <ul>
+          <li v-for="(category, index) in categoryModule" :key="index">
+            <Category :category="category"/>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -163,37 +195,42 @@
 import Swiper from 'swiper'
 import 'swiper/dist/css/swiper.css'
 import BScroll from 'better-scroll'
-import { reqHome } from '../../api'
-export default {
-  data() {
-    return {
-      policyDescList: [], // 服务策略
-      kingKongModule: {}, // 商品导航
-      flashSaleModule: {}, // 限时购
-      focusList: [],
-      tagList: [],
-      categoryList: {} // 类目热销榜
-    }
-  },
-  async mounted() {
-    const result = await reqHome()
+import { mapState } from 'vuex'
 
-    if (result.code === 0) {
-      this.policyDescList = result.data.policyDescList
-      this.kingKongModule = result.data.kingKongModule
-      this.flashSaleModule = result.data.flashSaleModule
-      this.focusList = result.data.focusList
-      this.tagList = result.data.tagList
-      this.categoryList = result.data.categoryHotSellModule.categoryList
-    }
-    this.$nextTick(() => {
-      this.mySwiper = new Swiper('.swiper-container', {
-        loop: true, // 循环模式选项
-        // 如果需要分页器
-        pagination: {
-          el: '.swiper-pagination'
-        }
-      })
+import GoodList from '../../components/GoodList/GoodList'
+import Title from '../../components/Title/Title'
+import Category from '../../components/Category/Category'
+
+export default {
+  components: {
+    GoodList,
+    Title,
+    Category
+  },
+  data() {
+    return {}
+  },
+  computed: {
+    ...mapState({
+      policyDescList: state => state.home.policyDescList,
+      kingKongModule: state => state.home.kingKongModule,
+      focusList: state => state.home.focusList,
+      tagList: state => state.home.tagList,
+      categoryList: state => state.home.categoryList,
+      popularItemList: state => state.home.popularItemList,
+      flashSaleModule: state => state.home.flashSaleModule,
+      newItemList: state => state.home.newItemList,
+      categoryModule: state => state.home.categoryModule
+    })
+  },
+  mounted() {
+    this.$store.dispatch('getHomeData').then(() => {
+      this._initScroll()
+      this._initSwiper()
+    })
+  },
+  methods: {
+    _initScroll() {
       this.scroll = new BScroll('.headerTab', {
         click: true,
         scrollX: true
@@ -201,19 +238,31 @@ export default {
       this.mainScroll = new BScroll('.mainContainer', {
         click: true
       })
-    })
+    },
+
+    _initSwiper() {
+      this.swiper = new Swiper(this.$refs.swiperWrap, {
+        loop: true, // 循环模式选项
+        // 如果需要分页器
+        pagination: {
+          el: '.swiper-pagination'
+        }
+      })
+    }
   }
 }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
 #firstViewContainer {
+  box-sizing: border-box;
+  padding-bottom: 98px;
+  position: relative;
   width: 100%;
   height: 100%;
-  overflow: hidden;
 
   .headerContainer {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -336,11 +385,13 @@ export default {
   }
 
   .mainContainer {
-    position: fixed;
-    left: 0;
-    top: 148px;
-    bottom: 98px;
+    box-sizing: border-box;
     width: 100%;
+    height: 100%;
+
+    .main {
+      padding-top: 148px;
+    }
 
     .swiper-container {
       width: 100%;
@@ -417,7 +468,6 @@ export default {
       width: 100%;
 
       .floor {
-        box-sizing: border-box;
         width: 100%;
         padding: 0 30px 30px;
         background-color: #fff;
@@ -460,7 +510,6 @@ export default {
       }
 
       .newPerson {
-        padding: 0 30px;
         overflow: hidden;
 
         .title {
@@ -515,35 +564,17 @@ export default {
       }
 
       .tagList {
-        width: 100%;
-        padding: 0 26px 30px;
-
-        .title {
-          width: 100%;
-          height: 100px;
-
-          .left {
-            font-size: 32px;
-            height: 100px;
-            line-height: 100px;
-          }
-
-          .right {
-            float: right;
-            font-size: 28px;
-          }
-        }
-
         .list {
-          overflow: hidden;
           background-size: 100% 100%;
           background-repeat: no-repeat;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
 
           .listItem {
             width: 343px;
             height: 260px;
-            margin: 0 4px 4px 0;
-            float: left;
+            margin-bottom: 4px;
 
             .listItemWarp {
               padding-top: 33px;
@@ -572,28 +603,24 @@ export default {
       }
 
       .categoryHotSellModule {
-        padding: 0 20px 30px;
-
-        .title {
-          width: 100%;
-          height: 100px;
-        }
-
         .list {
-          overflow: hidden;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
 
           .listItem {
             position: relative;
-            float: left;
             width: 165px;
             height: 180px;
-            margin: 0 10px 10px 0;
+            margin-bottom: 10px;
             background-color: rgb(245, 245, 245);
 
             .name {
+              height: 36px;
+              line-height: 36px;
               font-size: 24px;
               color: #333;
-              margin-top: 10px;
+              margin-top: 20px;
               text-align: center;
             }
 
@@ -614,14 +641,18 @@ export default {
                 padding-left: 24px;
                 text-align: left;
 
-                &::after {
-                  position: absolute;
-                  left: 0;
-                  top: 53px;
-                  display: block;
-                  width: 48px;
-                  height: 4px;
-                  background-color: #333;
+                span {
+                  position: relative;
+
+                  &::after {
+                    position: absolute;
+                    content: '';
+                    left: 0;
+                    top: 53px;
+                    width: 48px;
+                    height: 4px;
+                    background-color: #333;
+                  }
                 }
               }
 
@@ -638,6 +669,54 @@ export default {
                   height: 200px;
                 }
               }
+            }
+          }
+        }
+      }
+
+      .popularItemList {
+        .firstItem {
+          width: 690px;
+          height: 280px;
+          margin-bottom: 20px;
+          background-color: rgb(254, 240, 223);
+          display: flex;
+          align-items: center;
+
+          .img {
+            width: 280px;
+            height: 280px;
+            margin-right: 30px;
+          }
+
+          .info {
+            width: 350px;
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .discounts {
+              font-size: 20px;
+              color: #b4282d;
+              border: 1px solid #b4282d;
+              margin-bottom: 5px;
+              padding: 0 8px;
+            }
+
+            .name {
+              color: #333;
+              font-size: 28px;
+            }
+
+            .simpleDesc {
+              color: #7f7f7f;
+              font-size: 24px;
+            }
+
+            .price {
+              color: #b4282d;
+              font-size: 28px;
             }
           }
         }
