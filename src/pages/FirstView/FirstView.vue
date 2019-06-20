@@ -1,6 +1,6 @@
 <template>
   <div id="firstViewContainer">
-    <div class="headerContainer">
+    <header class="headerContainer">
       <div class="header">
         <a href="javascript:;" class="logo"></a>
         <div class="headerSearch" @click="$router.push('/search')">
@@ -43,7 +43,7 @@
           <div class="icon"></div>
         </div>
       </div>
-    </div>
+    </header>
 
     <div class="mainContainer">
       <div class="main">
@@ -186,6 +186,16 @@
             <Category :category="category"/>
           </li>
         </ul>
+        <footer class="footer">
+          <div class="link">
+            <a href="https://m.you.163.com/downloadapp">下载APP</a>
+            <a href="https://you.163.com/">电脑版</a>
+          </div>
+          <div class="info">
+            <p>网易公司版权所有 © 1997-2019</p>
+            <p>食品经营许可证：JY13301080111719</p>
+          </div>
+        </footer>
       </div>
     </div>
   </div>
@@ -719,6 +729,43 @@ export default {
               font-size: 28px;
             }
           }
+        }
+      }
+    }
+
+    .footer {
+      box-sizing: border-box;
+      width: 100%;
+      height: 244px;
+      padding: 54px 20px 28px;
+      background-color: #414141;
+
+      .link {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 36px;
+
+        a {
+          color: #fff;
+          width: 170px;
+          height: 60px;
+          line-height: 60px;
+          text-align: center;
+          border: 1px solid #999;
+
+          &:first-child {
+            margin-right: 50px;
+          }
+        }
+      }
+
+      .info {
+        line-height: 32px;
+
+        p {
+          color: #999999;
+          font-size: 24px;
+          text-align: center;
         }
       }
     }

@@ -10,7 +10,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        target: 'http://m.you.163.com',
         changeOrigin: true,
         pathRewrite: {
           '^/api': '', // 去掉path前面的/api
