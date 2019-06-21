@@ -92,6 +92,7 @@ export default {
         width: 40px;
         height: 40px;
         background-repeat: no-repeat;
+        background-size: 40px 490px;
       }
 
       &:nth-child(1) i {

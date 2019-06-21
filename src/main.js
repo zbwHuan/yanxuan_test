@@ -12,6 +12,19 @@ Vue.config.devtools = false
 Vue.component('Split', Split)
 Vue.component('HeaderSearch', HeaderSearch)
 
+/* router.beforeEach((to, from, next) => {
+  if (to.meta.content) {
+    // let head = document.getElementsByTagName('head');
+    let metas = document.getElementsByTagName('meta');
+    let meta = Array.prototype.filter.call(metas, (item) => item.name === 'viewport')[0]
+    meta.content = to.meta.content;
+    // head[0].appendChild(meta)
+  }
+
+  next()
+}); */
+
+
 new Vue({
   el: '#app',
   components: { App },

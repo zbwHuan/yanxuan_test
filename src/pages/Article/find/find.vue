@@ -1,0 +1,141 @@
+<template>
+  <div id="findContainer">
+    <div v-for="(item, index) in articleData" :key="index">
+      <div v-for="(topic, index) in item.topics" :key="index">
+        <Item :topics="topic"/>
+      </div>
+      <Split v-if="item.look"/>
+      <div class="rating" v-if="item.look">
+        <div class="header">
+          <span class="avatarWrap">
+            <img class="avatar" :src="item.look.avatar">
+          </span>
+          <span class="name">{{item.look.nickname}}</span>
+        </div>
+        <div class="content">{{item.look.content}}</div>
+        <div class="imgWrap">
+          <img class="img" :src="item.look.lookPics[0].picUrl">
+        </div>
+        <div class="readCount">
+          <i class="icon"></i>
+          <span>{{item.look.readCount > 10000 ? Math.round(item.look.readCount / 10000) + 'w' : item.look.readCount}}人看过</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script type="text/ecmascript-6">
+import { reqAuto } from '../../../api'
+import Item from '../arcicleItem/arcicleItem'
+export default {
+  data() {
+    return {
+      page: 1,
+      articleData: []
+    }
+  },
+  components: {
+    Item
+  },
+  methods: {
+    async getNewData(){
+      this.page++
+      const result = await reqAuto(this.page)
+      if(result.code === '200'){
+        const newData = this.articleData.concat(result.data.result)
+        this.articleData = newData
+      }
+    }
+  },
+  async mounted() {
+    const result = await reqAuto(this.page)
+    if (result.code === '200') {
+      this.articleData = result.data.result
+    }
+  },
+  watch: {
+    articleData() {
+      this.$nextTick(() => {
+        this.$emit('toggle')
+      })
+    }
+  },
+}
+</script>
+
+<style lang="stylus" rel="stylesheet/stylus" scoped>
+#findContainer {
+  .rating {
+    width: 100%;
+    padding: 36px 30px;
+    background-color: #fff;
+
+    .header {
+      width: 100%;
+      height: 56px;
+      line-height: 56px;
+      margin-bottom: 24px;
+
+      .avatarWrap {
+        display: inline-block;
+        width: 56px;
+        height: 56px;
+        border: 1px soild #d9d9d9;
+        margin-right: 12px;
+
+        .avatar {
+          width: 54px;
+          height: 54px;
+          border-radius: 50%;
+          vertical-align: middle;
+        }
+      }
+
+      .name {
+        vertical-align: middle;
+        font-size: 28px;
+        color: #333;
+      }
+    }
+
+    .content {
+      width: 100%;
+      line-height: 48px;
+      font-size: 32px;
+      color: #333;
+      margin: 24px 0 20px;
+    }
+
+    .imgWrap {
+      width: 100%;
+      height: 376px;
+      border-radius: 5px;
+      overflow: hidden;
+
+      .img {
+        width: 100%;
+      }
+    }
+
+    .readCount {
+      margin: 20px 0 -16px;
+      width: 100%;
+
+      .icon {
+        display: inline-block;
+        width: 28px;
+        height: 20px;
+        margin-right: 8px;
+        background-image: url('../../../common/images/eyes.png');
+        background-size: 28px 20px;
+        background-repeat: no-repeat;
+      }
+
+      span {
+        color: #999;
+      }
+    }
+  }
+}
+</style>

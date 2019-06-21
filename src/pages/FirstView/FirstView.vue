@@ -232,9 +232,10 @@ export default {
     })
   },
   mounted() {
-    this.$store.dispatch('getHomeData').then(() => {})
-    this._initScroll()
-    this._initSwiper()
+    this.$store.dispatch('getHomeData').then(() => {
+      this._initScroll()
+      this._initSwiper()
+    })
   },
   methods: {
     _initScroll() {
@@ -249,6 +250,7 @@ export default {
 
     _initSwiper() {
       this.swiper = new Swiper(this.$refs.swiperWrap, {
+        autoplay: true,
         loop: true, // 循环模式选项
         // 如果需要分页器
         pagination: {

@@ -1,6 +1,6 @@
 import { reqCategory } from '../../api'
 import {
-  RECIVE_CATEGORYL1LIST
+  RECEIVE_CATEGORYL1LIST
 } from '../mutations-types'
 
 const state = {
@@ -13,14 +13,14 @@ const actions = {
     const result = await reqCategory()
     if (result.code === 0) {
       const { categoryL1List } = result.data
-      commit(RECIVE_CATEGORYL1LIST, categoryL1List)
+      commit(RECEIVE_CATEGORYL1LIST, categoryL1List)
     }
   }
 
 }
 
 const mutations = {
-  [RECIVE_CATEGORYL1LIST] (state, categoryL1List) {
+  [RECEIVE_CATEGORYL1LIST] (state, categoryL1List) {
     state.categoryL1List = categoryL1List
   }
 
