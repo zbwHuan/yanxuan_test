@@ -5,7 +5,7 @@
         class="listItem"
         href="javascript:;"
         @click="goto('/firstview')"
-        :class="{active: $route.path === '/firstview'}"
+        :class="{active: $route.path.indexOf('/firstview') !== -1}"
       >
         <i class="iconfont"></i>
         <span>首页</span>
@@ -14,7 +14,7 @@
         class="listItem"
         href="javascript:;"
         @click="goto('/category')"
-        :class="{active: $route.path === '/category'}"
+        :class="{active: $route.path.indexOf('/category') !== -1 }"
       >
         <i class="iconfont"></i>
         <span>分类</span>
@@ -23,7 +23,7 @@
         class="listItem"
         href="javascript:;"
         @click="goto('/article')"
-        :class="{active: $route.path === '/article'}"
+        :class="{active: $route.path.indexOf('/article') !== -1 }"
       >
         <i class="iconfont"></i>
         <span>识物</span>
@@ -32,7 +32,7 @@
         class="listItem"
         href="javascript:;"
         @click="goto('/shopcart')"
-        :class="{active: $route.path === '/shopcart'}"
+        :class="{active: $route.path.indexOf('/shopcart') !== -1}"
       >
         <i class="iconfont"></i>
         <span>购物车</span>
@@ -41,7 +41,7 @@
         class="listItem"
         href="javascript:;"
         @click="goto('/personal')"
-        :class="{active: $route.path === '/personal'}"
+        :class="{active: $route.path.indexOf('/personal') !== -1}"
       >
         <i class="iconfont"></i>
         <span>个人</span>

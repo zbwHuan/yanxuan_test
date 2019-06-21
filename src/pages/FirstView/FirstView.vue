@@ -1,14 +1,10 @@
 <template>
   <div id="firstViewContainer">
+    <HeaderSearch>
+      <a href="javascript:;" class="logo" slot="left"></a>
+      <div class="login" slot="right">登录</div>
+    </HeaderSearch>
     <header class="headerContainer">
-      <div class="header">
-        <a href="javascript:;" class="logo"></a>
-        <div class="headerSearch" @click="$router.push('/search')">
-          <i class="iconfont"></i>
-          <span>搜索商品, 共25113款好物</span>
-        </div>
-        <div class="login">登录</div>
-      </div>
       <div class="headerTab">
         <ul class="tabList">
           <li class="tabItem active">
@@ -46,156 +42,158 @@
     </header>
 
     <div class="mainContainer">
-      <div class="main">
-        <div class="swiper-container" ref="swiperWrap">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide" v-for="(item, index) in focusList" :key="index">
-              <img :src="item.picUrl">
-            </div>
-          </div>
-          <!-- 如果需要分页器 -->
-          <div class="swiper-pagination"></div>
-        </div>
-        <ul class="g-grow">
-          <li class="item" v-for="(item, index) in policyDescList" :key="index">
-            <i class="iconfont" :style="`background-image:url(${item.icon});`"></i>
-            <span>{{item.desc}}</span>
-          </li>
-        </ul>
-        <div class="kingkongModul">
-          <a
-            class="kingkongItem"
-            v-for="(item, index) in kingKongModule.kingKongList"
-            :key="index"
-            :href="item.schemeUrl"
-          >
-            <div class="icon">
-              <img :src="item.picUrl">
-            </div>
-            <div class="txt">{{item.text}}</div>
-          </a>
-        </div>
-        <div class="m-indexBigPromotionModule">
-          <div class="floor floorTop">
-            <div class="promGood">
-              <img src="http://yanxuan.nosdn.127.net/c7b29180b9602593004a9c24eba41c0c.png">
-              <span>$2333</span>
-            </div>
-          </div>
-          <Split/>
-          <div class="floor newPerson">
-            <div class="title">
-              <span>-新人专享礼-</span>
-            </div>
-            <a href="javascript:;" class="left">
-              <p>新人专享礼包</p>
-              <div>
-                <img src="../../common/images/15yuan.png">
+      <div class="mainWrap">
+        <div class="main">
+          <div class="swiper-container" ref="swiperWrap">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" v-for="(item, index) in focusList" :key="index">
+                <img :src="item.picUrl">
               </div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+          </div>
+          <ul class="g-grow">
+            <li class="item" v-for="(item, index) in policyDescList" :key="index">
+              <i class="iconfont" :style="`background-image:url(${item.icon});`"></i>
+              <span>{{item.desc}}</span>
+            </li>
+          </ul>
+          <div class="kingkongModul">
+            <a
+              class="kingkongItem"
+              v-for="(item, index) in kingKongModule.kingKongList"
+              :key="index"
+              :href="item.schemeUrl"
+            >
+              <div class="icon">
+                <img :src="item.picUrl">
+              </div>
+              <div class="txt">{{item.text}}</div>
             </a>
-
-            <div class="right">
-              <p>福利社</p>
-              <p>今日特价</p>
-              <div>
-                <img src="../../common/images/15yuan.png">
+          </div>
+          <div class="m-indexBigPromotionModule">
+            <div class="floor floorTop">
+              <div class="promGood">
+                <img src="http://yanxuan.nosdn.127.net/c7b29180b9602593004a9c24eba41c0c.png">
+                <span>$2333</span>
               </div>
             </div>
-            <div class="right">
-              <p>福利社</p>
-              <p>今日特价</p>
-              <div>
-                <img src="../../common/images/15yuan.png">
+            <Split/>
+            <div class="floor newPerson">
+              <div class="title">
+                <span>-新人专享礼-</span>
               </div>
-            </div>
-          </div>
-          <Split/>
-          <div class="floor tagList">
-            <Title :name="'品牌制造商直供'" :isShow="true"/>
-            <ul class="list">
-              <li
-                class="listItem"
-                v-for="(item, index) in tagList"
-                :key="index"
-                :style="'background-image: url(' + item.picUrl + ')'"
-              >
-                <div class="listItemWarp">
-                  <h4 class="name">{{item.extra.materialName}}</h4>
-                  <div>
-                    <span class="price">{{item.floorPrice}}</span>
-                    <span>元起</span>
-                    <i v-if="item.newOnShelf">上新</i>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <Split/>
-          <div class="floor categoryHotSellModule">
-            <Title :name="'类目热销榜'" :isShow="false"/>
-            <ul class="list">
-              <li
-                class="listItem"
-                v-for="(item, index) in categoryList"
-                :key="index"
-                :style="'background-image: url(' + item.picUrl + ')'"
-              >
-                <div class="name">
-                  <span>{{item.categoryName}}</span>
-                </div>
-                <div class="imgWarp">
-                  <img :src="item.picUrl">
-                </div>
-              </li>
-            </ul>
-          </div>
-          <Split/>
-          <div class="floor popularItemList" v-if="popularItemList.length">
-            <Title :name="'人气推荐'" :isShow="true"/>
-            <div class="firstItem">
-              <img class="img" :src="popularItemList[0].listPicUrl">
-              <div class="info">
+              <a href="javascript:;" class="left">
+                <p>新人专享礼包</p>
                 <div>
-                  <span
-                    class="discounts"
-                    v-for="(tag, index) in popularItemList[0].itemTagList"
-                    :key="index"
-                  >{{tag.name}}</span>
+                  <img src="../../common/images/15yuan.png">
                 </div>
-                <p class="name">{{popularItemList[0].name}}</p>
-                <p class="simpleDesc">{{popularItemList[0].simpleDesc}}</p>
-                <span class="price">¥{{popularItemList[0].counterPrice}}</span>
+              </a>
+
+              <div class="right">
+                <p>福利社</p>
+                <p>今日特价</p>
+                <div>
+                  <img src="../../common/images/15yuan.png">
+                </div>
+              </div>
+              <div class="right">
+                <p>福利社</p>
+                <p>今日特价</p>
+                <div>
+                  <img src="../../common/images/15yuan.png">
+                </div>
               </div>
             </div>
-            <GoodList :goodList="popularItemList.slice(1)"/>
+            <Split/>
+            <div class="floor tagList">
+              <Title :name="'品牌制造商直供'" :isShow="true"/>
+              <ul class="list">
+                <li
+                  class="listItem"
+                  v-for="(item, index) in tagList"
+                  :key="index"
+                  :style="'background-image: url(' + item.picUrl + ')'"
+                >
+                  <div class="listItemWarp">
+                    <h4 class="name">{{item.extra.materialName}}</h4>
+                    <div>
+                      <span class="price">{{item.floorPrice}}</span>
+                      <span>元起</span>
+                      <i v-if="item.newOnShelf">上新</i>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <Split/>
+            <div class="floor categoryHotSellModule">
+              <Title :name="'类目热销榜'" :isShow="false"/>
+              <ul class="list">
+                <li
+                  class="listItem"
+                  v-for="(item, index) in categoryList"
+                  :key="index"
+                  :style="'background-image: url(' + item.picUrl + ')'"
+                >
+                  <div class="name">
+                    <span>{{item.categoryName}}</span>
+                  </div>
+                  <div class="imgWarp">
+                    <img :src="item.picUrl">
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <Split/>
+            <div class="floor popularItemList" v-if="popularItemList.length">
+              <Title :name="'人气推荐'" :isShow="true"/>
+              <div class="firstItem">
+                <img class="img" :src="popularItemList[0].listPicUrl">
+                <div class="info">
+                  <div>
+                    <span
+                      class="discounts"
+                      v-for="(tag, index) in popularItemList[0].itemTagList"
+                      :key="index"
+                    >{{tag.name}}</span>
+                  </div>
+                  <p class="name">{{popularItemList[0].name}}</p>
+                  <p class="simpleDesc">{{popularItemList[0].simpleDesc}}</p>
+                  <span class="price">¥{{popularItemList[0].counterPrice}}</span>
+                </div>
+              </div>
+              <GoodList :goodList="popularItemList.slice(1)"/>
+            </div>
+            <Split/>
+            <div class="floor flashSaleModule">
+              <Title :name="'限时购'" :isShow="true"/>
+              <GoodList :goodList="flashSaleModule.itemList"/>
+            </div>
+            <Split/>
+            <div class="floor newItemList">
+              <Title :name="'新品首发'" :isShow="true"/>
+              <GoodList :goodList="newItemList"/>
+            </div>
+            <Split/>
           </div>
-          <Split/>
-          <div class="floor flashSaleModule">
-            <Title :name="'限时购'" :isShow="true"/>
-            <GoodList :goodList="flashSaleModule.itemList"/>
-          </div>
-          <Split/>
-          <div class="floor newItemList">
-            <Title :name="'新品首发'" :isShow="true"/>
-            <GoodList :goodList="newItemList"/>
-          </div>
-          <Split/>
+          <ul>
+            <li v-for="(category, index) in categoryModule" :key="index">
+              <Category :category="category"/>
+            </li>
+          </ul>
+          <footer class="footer">
+            <div class="link">
+              <a href="https://m.you.163.com/downloadapp">下载APP</a>
+              <a href="https://you.163.com/">电脑版</a>
+            </div>
+            <div class="info">
+              <p>网易公司版权所有 © 1997-2019</p>
+              <p>食品经营许可证：JY13301080111719</p>
+            </div>
+          </footer>
         </div>
-        <ul>
-          <li v-for="(category, index) in categoryModule" :key="index">
-            <Category :category="category"/>
-          </li>
-        </ul>
-        <footer class="footer">
-          <div class="link">
-            <a href="https://m.you.163.com/downloadapp">下载APP</a>
-            <a href="https://you.163.com/">电脑版</a>
-          </div>
-          <div class="info">
-            <p>网易公司版权所有 © 1997-2019</p>
-            <p>食品经营许可证：JY13301080111719</p>
-          </div>
-        </footer>
       </div>
     </div>
   </div>
@@ -234,10 +232,9 @@ export default {
     })
   },
   mounted() {
-    this.$store.dispatch('getHomeData').then(() => {
-      this._initScroll()
-      this._initSwiper()
-    })
+    this.$store.dispatch('getHomeData').then(() => {})
+    this._initScroll()
+    this._initSwiper()
   },
   methods: {
     _initScroll() {
@@ -245,7 +242,7 @@ export default {
         click: true,
         scrollX: true
       })
-      this.mainScroll = new BScroll('.mainContainer', {
+      this.mainScroll = new BScroll('.mainWrap', {
         click: true
       })
     },
@@ -264,143 +261,110 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
+@import '../../common/stylus/mixins.styl';
+
 #firstViewContainer {
-  box-sizing: border-box;
-  padding-bottom: 98px;
-  position: relative;
   width: 100%;
   height: 100%;
+  padding: 88px 0 98px;
+
+  .logo {
+    display: inline-block;
+    width: 138px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 30px;
+    font-family: '楷体';
+    color: black;
+    margin-right: 20px;
+    background-image: url('../../common/images/logo.png');
+  }
+
+  .login {
+    width: 74px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #b4282d;
+    border: 1px solid #b4282d;
+    border-radius: 5px;
+    font-size: 24px;
+    margin-left: 16px;
+  }
 
   .headerContainer {
+    position: relative;
+    clearFix();
+  }
+
+  .headerTab {
     position: absolute;
-    top: 0;
     left: 0;
-    width: 100%;
-    height: 148px;
-    z-index: 99;
+    top: 0;
     background-color: #fff;
+    z-index: 99;
+    width: 100%;
+    height: 60px;
 
-    .header {
-      width: 100%;
-      height: 88px;
-      padding: 16px 30px;
-      box-sizing: border-box;
+    .tabList {
+      padding: 0 30px;
       display: flex;
-      align-items: center;
+      width: 1460px;
+      height: 60px;
+      justify-content: space-between;
 
-      .logo {
-        display: inline-block;
-        width: 138px;
-        height: 40px;
-        line-height: 40px;
-        font-size: 30px;
-        font-family: '楷体';
-        color: black;
-        margin-right: 20px;
-        background-image: url('../../common/images/logo.png');
-      }
-
-      .headerSearch {
-        width: 442px;
-        height: 56px;
-        background-color: #ededed;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 28px;
-        color: rgb(51, 51, 51);
-
-        i {
-          width: 28px;
-          height: 28px;
-          margin-right: 10px;
-          background-image: url('../../common/images/search.png');
-          background-size: 100% 100%;
-        }
+      .tabItem {
+        height: 60px;
 
         span {
-          color: rgb(102, 102, 102);
-        }
-      }
+          box-sizing: border-box;
+          display: inline-block;
+          color: #333333;
+          font-size: 28px;
+          padding: 0 16px;
+          margin-left: 20px;
+          height: 60px;
+          line-height: 60px;
 
-      .login {
-        width: 74px;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-        color: #b4282d;
-        border: 1px solid #b4282d;
-        border-radius: 5px;
-        font-size: 24px;
-        margin-left: 16px;
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+
+        &.active span {
+          border-bottom: 4px solid #b4282d;
+          color: #b4282d;
+        }
       }
     }
 
-    .headerTab {
-      width: 100%;
+    .toggle {
+      position: fixed;
+      right: 0;
+      top: 88px;
+      z-index: 3;
+      background-color: #fff;
+      width: 100px;
       height: 60px;
+      line-height: 60px;
+      text-align: center;
 
-      .tabList {
-        padding: 0 30px;
-        display: flex;
-        width: 1460px;
-        height: 60px;
-        justify-content: space-between;
-
-        .tabItem {
-          height: 60px;
-
-          span {
-            box-sizing: border-box;
-            display: inline-block;
-            color: #333333;
-            font-size: 28px;
-            padding: 0 16px;
-            margin-left: 20px;
-            height: 60px;
-            line-height: 60px;
-
-            &:first-child {
-              margin-left: 0;
-            }
-          }
-
-          &.active span {
-            border-bottom: 4px solid #b4282d;
-            color: #b4282d;
-          }
-        }
-      }
-
-      .toggle {
-        position: fixed;
-        right: 0;
-        top: 88px;
-        z-index: 3;
-        background-color: #fff;
-        width: 100px;
-        height: 60px;
-        line-height: 60px;
-        text-align: center;
-
-        .icon {
-          width: 30px;
-          height: 30px;
-          margin: 15px auto;
-          background-image: url('../../common/images/toggle.png');
-        }
+      .icon {
+        width: 30px;
+        height: 30px;
+        margin: 15px auto;
+        background-image: url('../../common/images/toggle.png');
       }
     }
   }
 
   .mainContainer {
-    box-sizing: border-box;
     width: 100%;
     height: 100%;
+    padding-top: 60px;
 
-    .main {
-      padding-top: 148px;
+    .mainWrap {
+      height: 100%;
     }
 
     .swiper-container {
