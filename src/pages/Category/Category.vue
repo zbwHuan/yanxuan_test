@@ -1,6 +1,8 @@
 <template>
   <div id="categoryContainer">
-    <HeaderSearch/>
+    <Header>
+      <HeaderSearch slot="center"/>
+    </Header>
     <div class="mainContainer">
       <div class="leftNav" ref="leftNav">
         <ul class="navList">

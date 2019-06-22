@@ -15,7 +15,6 @@ export default [
     component: FirstView,
     meta: {
       isShowFooter: true,
-      content: 'initial-scale=0.5'
     }
   },
   {
@@ -23,7 +22,6 @@ export default [
     component: Category,
     meta: {
       isShowFooter: true,
-      content: 'initial-scale=0.5'
     },
     children: [
       {
@@ -31,7 +29,6 @@ export default [
         component: CategoryList,
         meta: {
           isShowFooter: true,
-          content: 'initial-scale=0.5'
         },
       },
       {
@@ -45,7 +42,6 @@ export default [
     component: Article,
     meta: {
       isShowFooter: true,
-      content: 'initial-scale=1'
     },
     children: [
       {
@@ -53,7 +49,6 @@ export default [
         component: Find,
         meta: {
           isShowFooter: true,
-          content: 'initial-scale=1'
         }
       },
       {
@@ -61,7 +56,6 @@ export default [
         component: Select,
         meta: {
           isShowFooter: false,
-          content: 'initial-scale=1'
         },
       },
       {
@@ -75,15 +69,13 @@ export default [
     component: ShopCart,
     meta: {
       isShowFooter: true,
-      content: 'initial-scale=0.5'
     }
   },
   {
     path: '/personal',
     component: Personal,
     meta: {
-      isShowFooter: true,
-      content: 'initial-scale=0.5'
+      isShowFooter: false,
     }
   },
   {
@@ -91,7 +83,6 @@ export default [
     component: Search,
     meta: {
       isShowFooter: false,
-      content: 'initial-scale=0.5'
     }
   },
   {

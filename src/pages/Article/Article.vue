@@ -75,6 +75,7 @@ export default {
       as.forEach(item => {
         width += item.clientWidth
       }, 0)
+      
       this.$refs.tabWrap.style.width = width + 1 + 'px'
 
       new BScroll('.headTab', {

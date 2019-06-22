@@ -1,9 +1,10 @@
 <template>
   <div id="firstViewContainer">
-    <HeaderSearch>
+    <Header>
       <a href="javascript:;" class="logo" slot="left"></a>
+      <HeaderSearch slot="center"></HeaderSearch>
       <div class="login" slot="right">登录</div>
-    </HeaderSearch>
+    </Header>
     <header class="headerContainer">
       <div class="headerTab">
         <ul class="tabList">

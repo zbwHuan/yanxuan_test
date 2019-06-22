@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import Split from './components/Split/Split'
 import HeaderSearch from './components/HeaderSearch/HeaderSearch.vue'
+import Header from './components/Header/Header.vue'
 import store from './store'
 import 'lib-flexible/flexible.js'
 import './mock/mock-server'
@@ -11,6 +12,7 @@ Vue.config.devtools = false
 
 Vue.component('Split', Split)
 Vue.component('HeaderSearch', HeaderSearch)
+Vue.component('Header', Header)
 
 /* router.beforeEach((to, from, next) => {
   if (to.meta.content) {
