@@ -5,7 +5,13 @@
         <div class="searchWrap">
           <i class="iconfont"></i>
           <div class="clear" v-if="keyword" @click="clear">×</div>
-          <input type="text" placeholder="超轻口袋遮阳伞 防晒必备" v-model="keyword" @keyup="autoSearch">
+          <input
+            type="text"
+            placeholder="超轻口袋遮阳伞 防晒必备"
+            v-model="keyword"
+            @keyup="autoSearch"
+            @keyup.enter="updateHistory"
+          >
         </div>
       </form>
       <span @click="$router.back()">取消</span>
@@ -19,6 +25,15 @@
         </div>
       </li>
     </ul>
+    <div v-if="history.length" class="hotSearch">
+      <h3>历史记录</h3>
+      <ul class="list">
+        <li class="listItem" v-for="(item, index) in history" :key="index">
+          <a>{{item}}</a>
+        </li>
+      </ul>
+    </div>
+    <Split v-if="history.length"/>
     <div v-show="!keyword" class="hotSearch">
       <h3>热门搜索</h3>
       <ul class="list">
@@ -37,22 +52,36 @@ export default {
     return {
       hotKeywordVOList: [],
       keyword: '',
-      data: []
+      data: [],
+      isSearching: false,
+      history: []
     }
   },
   methods: {
     async autoSearch() {
+      if (this.isSearching) {
+        return
+      }
+      this.isSearching = true
+      setTimeout(() => {
+        this.isSearching = false
+      }, 300)
       const result = await reqAutoSearch(this.keyword)
       if (result.code) {
         this.data = result.data
-        console.log(this.data)
       }
+    },
+    updateHistory() {
+      this.history.push(this.keyword)
+      localStorage.setItem('history', JSON.stringify(this.history))
     },
     clear() {
       this.keyword = ''
     }
   },
   async mounted() {
+    this.history = JSON.parse(localStorage.getItem('history') || '[]')
+
     const result = await reqInitSearch()
     if (result.code) {
       this.hotKeywordVOList = result.data.hotKeywordVOList

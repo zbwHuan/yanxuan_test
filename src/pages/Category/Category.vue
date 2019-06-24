@@ -13,7 +13,8 @@
             :class="{active: isActive === index}"
             @click="toggle(index)"
           >
-            <router-link :to="'/category/' + item.id">{{item.name}}</router-link>
+            <!-- <router-link :to="'/category/' + item.id">{{item.name}}</router-link> -->
+            <router-link :to="{name:'categoryList', params: {id: item.id}}">{{item.name}}</router-link>
           </li>
         </ul>
       </div>
@@ -53,7 +54,7 @@ export default {
   },
   mounted() {
     this.$router.push('/category')
-    this.$store.dispatch('getCategory')
+    
     this._initScroll()
     const leftNav = this.$refs.leftNav
     const height = document.documentElement.clientHeight - 88 - 98

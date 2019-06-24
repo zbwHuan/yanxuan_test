@@ -206,9 +206,9 @@ import 'swiper/dist/css/swiper.css'
 import BScroll from 'better-scroll'
 import { mapState } from 'vuex'
 
-import GoodList from '../../components/GoodList/GoodList'
 import Title from '../../components/Title/Title'
-import Category from '../../components/Category/Category'
+import GoodList from './components/GoodList/GoodList'
+import Category from './components/Category/Category'
 
 export default {
   components: {

@@ -24,7 +24,7 @@
         </li>
       </ul>
     </div>
-    <div class="main">
+    <div class="main" v-show="mainScroll">
       <div class="list">
         <div v-for="(item, index) in manual" :key="index">
           <div v-for="(item, index) in item.topics" :key="index">
@@ -47,7 +47,9 @@ export default {
     return {
       isActive: 0,
       pages: 1,
-      flag: false
+      flag: false,
+      mainScroll: null,
+      headTab: null
     }
   },
   components: {
@@ -75,10 +77,10 @@ export default {
       as.forEach(item => {
         width += item.clientWidth
       }, 0)
-      
+
       this.$refs.tabWrap.style.width = width + 1 + 'px'
 
-      new BScroll('.headTab', {
+      this.headTab = new BScroll('.headTab', {
         click: true,
         scrollX: true
       })

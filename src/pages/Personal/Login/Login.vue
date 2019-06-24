@@ -7,8 +7,15 @@
       <div class="login">
         <form class="phone-form" v-show="isLogin === 1">
           <div class="phone">
-            <input type="text" placeholder="请输入手机号">
+            <input
+              type="text"
+              placeholder="请输入手机号"
+              v-model="phone"
+              name="phone"
+              v-validate="'required|mobile'"
+            >
           </div>
+          <span style="color: red;" v-show="errors.has('phone')">{{ errors.first('phone') }}</span>
           <div class="mess" v-if="isMessage">
             <input type="text" placeholder="请输入短信验证码">
             <div class="getMess">获取验证码</div>
@@ -20,7 +27,7 @@
             <span>{{isMessage ? '遇到问题 ?' : '忘记密码 ?'}}</span>
             <span @click="isMessage = !isMessage">{{isMessage ? '使用密码验证登录' : '使用短信验证登录'}}</span>
           </div>
-          <div class="submit">登录</div>
+          <div class="submit" @click="login">登录</div>
         </form>
         <form class="message-form" v-show="isLogin === 2">
           <div class="phone">
@@ -52,7 +59,9 @@ export default {
   name: 'Login',
   data() {
     return {
-      isMessage: true
+      isMessage: true,
+      data: null,
+      phone: null
     }
   },
   props: {
@@ -61,6 +70,9 @@ export default {
   methods: {
     changeToggle() {
       this.$emit('toggle', 0)
+    },
+    login() {
+      this.$validator.validateAll('phone')
     }
   }
 }

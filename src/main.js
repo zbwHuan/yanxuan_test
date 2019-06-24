@@ -7,6 +7,7 @@ import Header from './components/Header/Header.vue'
 import store from './store'
 import 'lib-flexible/flexible.js'
 import './mock/mock-server'
+import './validate'
 
 Vue.config.devtools = false
 

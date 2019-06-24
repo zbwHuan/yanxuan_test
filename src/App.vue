@@ -1,7 +1,7 @@
 <template>
   <div id="warp">
     <router-view></router-view>
-    <FooterGuide  v-show="$route.meta.isShowFooter"/>
+    <FooterGuide v-show="$route.meta.isShowFooter"/>
   </div>
 </template>
 
@@ -10,6 +10,9 @@ import FooterGuide from './components/FooterGuide/FooterGuide'
 export default {
   components: {
     FooterGuide
+  },
+  mounted() {
+    this.$store.dispatch('getCategory')
   }
 }
 </script>

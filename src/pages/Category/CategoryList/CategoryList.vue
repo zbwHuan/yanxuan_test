@@ -23,6 +23,7 @@ import { mapState } from 'vuex'
 import BScroll from 'better-scroll'
 
 export default {
+  name: 'categoryList',
   data() {
     return {}
   },

@@ -18,4 +18,4 @@ export const reqArticleTab = () => ajax(BASE + '/topic/v1/find/getTabs.json')
 export const reqArticleManual = () => ajax(BASE + '/topic/v1/find/recManual.json')
 
 // 上拉加载
-export const reqAuto = (data) => ajax(BASE + `topic/v1/find/recAuto.json?page=${data}&size=5`)
+export const reqAuto = (data) => ajax(BASE + `/topic/v1/find/recAuto.json?page=${data}&size=5`)
