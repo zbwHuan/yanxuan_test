@@ -1,6 +1,6 @@
 import FirstView from '../pages/FirstView/FirstView.vue'
 // import Category from '../pages/Category/Category.vue'
-// import Article from '../pages/Article/Article.vue'
+import Article from '../pages/Article/Article.vue'
 // import Find from '../pages/Article/find/find.vue'
 // import Select from '../pages/Article/select/select.vue'
 // import ShopCart from '../pages/ShopCart/ShopCart.vue'
@@ -9,7 +9,7 @@ import FirstView from '../pages/FirstView/FirstView.vue'
 // import CategoryList from '../pages/Category/CategoryList/CategoryList'
 const Category = () => import('../pages/Category/Category.vue')
 const Find = () => import('../pages/Article/find/find.vue')
-const Article = () => import('../pages/Article/Article.vue')
+// const Article = () => import('../pages/Article/Article.vue')
 const ShopCart = () => import('../pages/ShopCart/ShopCart.vue')
 const Select = () => import('../pages/Article/select/select.vue')
 const Personal = () => import('../pages/Personal/Personal.vue')

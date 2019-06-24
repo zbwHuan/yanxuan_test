@@ -17,6 +17,6 @@ VeeValidate.Validator.extend('mobile', {
   validate: value => {
     return /^1\d{10}$/.test(value)
   },
-  getMessage: field => field + '手机号码必须是11位'
+  getMessage: field => field + '手机号码必须是11位数字'
 })
 
