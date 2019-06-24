@@ -76,8 +76,8 @@ export default {
   },
   methods: {
     async getNewData() {
-      this.page++
       const result = await reqAuto(this.page)
+      this.page++
       if (result.code === '200') {
         const newData = this.articleData.concat(result.data.result)
         this.articleData = newData

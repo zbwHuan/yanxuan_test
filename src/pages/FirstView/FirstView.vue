@@ -263,7 +263,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" scoped>
 @import '../../common/stylus/mixins.styl';
 
 #firstViewContainer {
@@ -370,7 +370,7 @@ export default {
       height: 100%;
     }
 
-    .swiper-container {
+    /deep/ .swiper-container {
       width: 100%;
       height: 370px;
 
@@ -387,6 +387,26 @@ export default {
             height: 370px;
           }
         }
+      }
+
+      .swiper-container-horizontal > .swiper-pagination-bullets {
+        bottom: 30px;
+        left: 0;
+        width: 100%;
+      }
+
+      .swiper-pagination-bullet {
+        width: 48px;
+        height: 4px;
+        display: inline-block;
+        border-radius: 0;
+        background: #fff;
+        opacity: 0.4;
+      }
+
+      .swiper-pagination-bullet-active {
+        opacity: 1;
+        background: #fff;
       }
     }
 
