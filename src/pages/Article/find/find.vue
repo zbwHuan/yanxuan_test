@@ -67,7 +67,7 @@ export default {
     })
   },
   async mounted() {
-    // 初始加载第一页数据
+    // 初始加载第一页数据 
     const result = await reqAuto(this.page)
     if (result.code === '200') {
       this.articleData = result.data.result
